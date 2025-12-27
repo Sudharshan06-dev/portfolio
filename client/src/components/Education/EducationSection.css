@@ -1,0 +1,425 @@
+.education {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+}
+
+.education-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.education-card {
+  position: relative;
+  background: rgba(26, 31, 58, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card-glow-bg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.05;
+  filter: blur(60px);
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.education-card:hover .card-glow-bg {
+  opacity: 0.1;
+}
+
+.education-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(26, 31, 58, 0.7);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.education-card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* University Logo Styling */
+.university-logo-container {
+  flex: 0 0 auto;
+}
+
+.university-logo {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid;
+  padding: 1rem;
+  transition: all 0.3s;
+  animation: float-logo 3s ease-in-out infinite;
+}
+
+.university-logo.circle {
+  border-radius: 50%;
+}
+
+.university-logo.square {
+  border-radius: 16px;
+}
+
+.university-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes float-logo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.university-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* GPA Badge */
+.gpa-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+  animation: pulse-gpa 2s ease-in-out infinite;
+}
+
+@keyframes pulse-gpa {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(16, 185, 129, 0.5);
+  }
+}
+
+.gpa-value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gpa-perfect {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.gpa-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0 0 12px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.degree-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.school-info {
+  margin-bottom: 2rem;
+}
+
+.school-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.school-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.school-meta svg {
+  margin-right: 0.25rem;
+}
+
+.location,
+.period {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.period-divider {
+  color: #6366f1;
+}
+
+.highlights-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.highlights-section h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #a5b4fc;
+  margin-bottom: 1.25rem;
+}
+
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.highlight-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.card-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  overflow: hidden;
+}
+
+.decoration-line {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.education-card:hover .decoration-line {
+  left: 0;
+}
+
+/* Education Footer */
+.education-footer {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.achievement-card {
+  max-width: 800px;
+  background: rgba(26, 31, 58, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s;
+}
+
+.achievement-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(26, 31, 58, 0.7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-icon {
+  font-size: 4rem;
+  animation: float 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.achievement-content h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.achievement-content p {
+  color: #9ca3af;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .education {
+    padding: 4rem 1rem;
+  }
+
+  .education-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .university-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gpa-badge {
+    position: static;
+    width: fit-content;
+  }
+
+  .gpa-value {
+    font-size: 2rem;
+  }
+
+  .degree-title {
+    font-size: 1.3rem;
+  }
+
+  .school-name {
+    font-size: 1.1rem;
+  }
+
+  .school-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .period-divider {
+    display: none;
+  }
+
+  .achievement-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .achievement-icon {
+    font-size: 3rem;
+  }
+
+  .achievement-content h3 {
+    font-size: 1.3rem;
+  }
+}
